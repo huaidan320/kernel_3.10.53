@@ -1,0 +1,1 @@
+cmd_arch/arm/boot/uImage := /bin/bash /home/linux/github/kernel_3.10.53/scripts/mkuboot.sh -A arm -O linux -C none  -T kernel -a 0x12000000 -e 0x12000000 -n 'Linux-3.10.53' -d arch/arm/boot/zImage arch/arm/boot/uImage

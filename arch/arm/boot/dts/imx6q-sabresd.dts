@@ -1,0 +1,68 @@
+/*
+ * Copyright 2012 Freescale Semiconductor, Inc.
+ * Copyright 2011 Linaro Ltd.
+ *
+ * The code contained herein is licensed under the GNU General Public
+ * License. You may obtain a copy of the GNU General Public License
+ * Version 2 or later at the following locations:
+ *
+ * http://www.opensource.org/licenses/gpl-license.html
+ * http://www.gnu.org/copyleft/gpl.html
+ */
+
+/dts-v1/;
+
+#include "imx6q.dtsi"
+#include "imx6qdl-sabresd.dtsi"
+/ {
+	model = "Freescale i.MX6 Quad SABRE Smart Device Board";
+	compatible = "fsl,imx6q-sabresd", "fsl,imx6q";
+	user_gpio {
+        	compatible = "user_gpio";
+/*		pinctrl-0 = <&pinctrl_user_gpio1>; */
+        	pin_gpios = <
+                	&gpio1 16 1
+                	&gpio1 17 1
+                	&gpio1 18 1
+                	&gpio1 20 1
+                	&gpio3 10 1
+                	&gpio3 11 1
+                	&gpio3 12 1
+                	&gpio3 14 1
+                	&gpio7 2 1
+                	&gpio7 3 1
+                	&gpio7 8 1
+                	&gpio7 7 1
+        	>;
+	};
+};
+
+&ldb {
+	lvds-channel@0 {
+		crtc = "ipu2-di0";
+	};
+
+	lvds-channel@1 {
+		crtc = "ipu2-di1";
+	};
+};
+
+&mxcfb1 {
+	status = "okay";
+};
+
+&mxcfb2 {
+	status = "okay";
+};
+
+&mxcfb3 {
+	status = "okay";
+};
+
+&mxcfb4 {
+	status = "okay";
+};
+
+&sata {
+	status = "okay";
+};

@@ -1,0 +1,1 @@
+cmd_drivers/media/platform/mxc/capture/gc2023_camera_mipi.o := arm-linux-gnueabihf-ld -EL    -r -o drivers/media/platform/mxc/capture/gc2023_camera_mipi.o drivers/media/platform/mxc/capture/gc2023_mipi.o 

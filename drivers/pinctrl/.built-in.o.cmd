@@ -1,0 +1,1 @@
+cmd_drivers/pinctrl/built-in.o :=  arm-linux-gnueabihf-ld -EL    -r -o drivers/pinctrl/built-in.o drivers/pinctrl/core.o drivers/pinctrl/pinmux.o drivers/pinctrl/pinconf.o drivers/pinctrl/devicetree.o drivers/pinctrl/pinctrl-imx.o drivers/pinctrl/pinctrl-imx6q.o drivers/pinctrl/pinctrl-imx6dl.o drivers/pinctrl/pinctrl-imx6sl.o drivers/pinctrl/pinctrl-imx6sx.o 

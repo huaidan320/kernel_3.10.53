@@ -1,0 +1,62 @@
+/*
+ * Copyright (C) 2014 Freescale Semiconductor, Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/*
+//&iomuxc {
+//	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_hog_1>, <&pinctrl_hog_2>;
+
+	hog {
+		pinctrl_hog_2: hoggrp-2 {
+			fsl,pins = < */
+				/* MAX17135 */
+		/*		MX6QDL_PAD_EIM_A17__GPIO2_IO21 0x80000000
+				MX6QDL_PAD_EIM_D17__GPIO3_IO17 0x80000000
+				MX6QDL_PAD_EIM_D20__GPIO3_IO20 0x80000000
+				MX6QDL_PAD_EIM_A18__GPIO2_IO20 0x80000000
+				MX6QDL_PAD_EIM_OE__GPIO2_IO25 0x80000000
+		*/		
+		/* elan touch */
+		/*
+				MX6QDL_PAD_EIM_A20__GPIO2_IO18 0x80000000
+				MX6QDL_PAD_EIM_DA8__GPIO3_IO08 0x80000000
+				MX6QDL_PAD_EIM_D28__GPIO3_IO28 0x170b0
+		*//*
+			MX6QDL_PAD_GPIO_0__CCM_CLKO1    0x030b8
+			>;
+		};
+	};
+};*/
+
+&epdc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_epdc_0>;
+	status = "disabled";
+};
+
+&ldb {
+	lvds-channel@0 {
+		crtc = "ipu1-di0";
+	};
+
+	lvds-channel@1 {
+		crtc = "ipu1-di1";
+	};
+};
+
+&mxcfb1 {
+	status = "okay";
+};
+
+&mxcfb2 {
+	status = "okay";
+};
+
+&pxp {
+	status = "okay";
+};

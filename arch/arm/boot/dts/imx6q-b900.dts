@@ -1,0 +1,113 @@
+/*
+ * Copyright 2012 Freescale Semiconductor, Inc.
+ * Copyright 2011 Linaro Ltd.
+ *
+ * The code contained herein is licensed under the GNU General Public
+ * License. You may obtain a copy of the GNU General Public License
+ * Version 2 or later at the following locations:
+ *
+ * http://www.opensource.org/licenses/gpl-license.html
+ * http://www.gnu.org/copyleft/gpl.html
+ */
+
+/dts-v1/;
+
+#include "imx6q.dtsi"
+#include "imx6qdl-sabresd.dtsi"
+/ {
+        model = "Freescale i.MX6 Quad SABRE Smart Device Board";
+        compatible = "fsl,imx6q-sabresd", "fsl,imx6q";
+        user_gpio {
+                compatible = "user_gpio";
+                pin_gpios = <
+                        &gpio7 1 1
+                        &gpio3 10 1
+                        &gpio3 11 1
+                        &gpio3 12 1
+                >;
+        };
+
+	gpio_watchdog:wtd {
+                compatible = "gpio_watchdog";
+                gpios = <&gpio7 2 0
+                        &gpio7 3 0
+                        0>;	//WTD_IN
+        };
+};
+
+&iomuxc {
+        hog {
+                pinctrl_hog_1: hoggrp-1 {
+                        fsl,pins = <
+                                MX6QDL_PAD_GPIO_0__CCM_CLKO1    0x030b8
+                                MX6QDL_PAD_SD3_DAT4__GPIO7_IO01  0x80000000
+                                MX6QDL_PAD_EIM_DA10__GPIO3_IO10 0x80000000
+                                MX6QDL_PAD_EIM_DA11__GPIO3_IO11 0x80000000
+                                MX6QDL_PAD_EIM_DA12__GPIO3_IO12 0x80000000
+			>;
+		};
+	};
+};
+
+&weim {
+        serial8250@1,0 {
+		pinctrl-0 = <&pinctrl_serial8250_irq_2>;
+                interrupt-parent = <&gpio7>;
+                interrupts = <6 GPIO_ACTIVE_LOW>;
+                status = "okay";
+        };
+};
+
+
+
+&cpu0 {
+	arm-supply = <&reg_arm>;
+	soc-supply = <&reg_soc>;
+	pu-supply = <&reg_pu>; /* use pu_dummy if VDDSOC share with VDDPU */
+};
+
+&gpc {
+	fsl,ldo-bypass = <0>; /* use ldo-bypass, u-boot will check it and configure */
+	fsl,wdog-reset = <1>; /* watchdog select of reset source */
+	pu-supply = <&reg_pu>; /* ldo-bypass:use pu_dummy if VDDSOC share with VDDPU */
+};
+
+&gpu {
+	pu-supply = <&reg_pu>; /* ldo-bypass:use pu_dummy if VDDSOC share with VDDPU */
+};
+
+&vpu {
+	pu-supply = <&reg_pu>; /* ldo-bypass:use pu_dummy if VDDSOC share with VDDPU */
+};
+
+&wdog1 {
+	status = "okay";
+};
+
+&wdog2 {
+	status = "disabled";
+};
+
+&mxcfb1 {
+        status = "disabled";
+};
+
+&mxcfb2 {
+        status = "okay";
+};
+
+&mxcfb3 {
+        status = "disabled";
+};
+
+&mxcfb4 {
+        status = "disabled";
+};
+
+&sata {
+        status = "disabled";
+};
+
+&touchscreen {
+	status = "disabled";
+};

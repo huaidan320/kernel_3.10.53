@@ -1,0 +1,7 @@
+imx6dl-sabresd-ldo.o: arch/arm/boot/dts/imx6dl-sabresd-ldo.dts \
+ arch/arm/boot/dts/imx6dl-sabresd.dts arch/arm/boot/dts/imx6dl.dtsi \
+ arch/arm/boot/dts/imx6dl-pinfunc.h arch/arm/boot/dts/imx6qdl.dtsi \
+ arch/arm/boot/dts/skeleton.dtsi \
+ /home/linux/github/kernel_3.10.53/arch/arm/boot/dts/include/dt-bindings/gpio/gpio.h \
+ arch/arm/boot/dts/imx6qdl-sabresd.dtsi \
+ arch/arm/boot/dts/imx6dl-sabresd-common.dtsi
